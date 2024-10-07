@@ -1,0 +1,46 @@
+docker build -t nestjs-app .
+
+docker run --name nestJS -p 3000:3000 -v ${PWD}:/app nestjs-app
+
+para criar o docker deste projeto
+
+rodei esse comando direto no terminal, pois não foi possível adicionar no Docker:
+npm install class-validator class-transformer
+
+rodei mais esse comando direto no terminal, pois não foi possível adicionar no Docker
+npm install uuid
+
+
+
+para o banco, usar o docker-compose
+	docker-compose up -d
+
+Aqui vamos adicionar novas bibliotecas para trabalhar, o typeorm
+	npm install @nestjs/typeorm typeorm
+	npm install @nestjs/config
+	npm install pg
+
+
+--------
+
+Mudei os arquivos dockers para ficarem todos juntos, criei novamente o Docker :
+	docker-compose up -d 					<-- RODAR SOMENTE ESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE (não rodar aqueles de cima, não precisa)
+
+sempre que mudar algo, aguarde um tempo para o Docker reiniciar o nestjs
+
+
+Para acessar o local do banco: http://localhost:8081
+
+	Após executar o pgAdmin utilizando o docker-compose, você deve configurá-lo. Para isso, basta seguir os passos abaixo:
+
+	Acesse, no seu navegador, o endereço http://localhost:8081. Você deverá inserir o email e a senha que estão nas variáveis de ambiente DB_ADMIN_EMAIL e DB_PASSWORD, respectivamente, do arquivo .env.
+
+	Na sequência, você deve clicar em “Add New Server”, definir um nome e clicar em “Connection”.
+
+	Em “Connection”, basta colocar as seguintes informações:
+
+	Host: postgres
+	Porta: manter a 5432
+	Username: root (ou o configurado no seu arquivo .env)
+	Password: root (ou o configurado no seu arquivo .env)
+
